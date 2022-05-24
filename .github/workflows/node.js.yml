@@ -37,9 +37,9 @@ jobs:
       - uses: cypress-io/github-action@v2
         with:
           start: npm start
-          wait-on: "http://localhost:5000"
-          browser: chrome
-          headless: true
+          # wait-on: "http://localhost:5000"
+          # browser: chrome
+          # headless: true
       
       # # Artifacts to view when debugging cypress tests
       # - uses: actions/upload-artifact@v1
