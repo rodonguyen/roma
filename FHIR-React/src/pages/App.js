@@ -18,9 +18,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={AppConstantElements}>
-          <Route path="/patients" element={Patient()}>
-            <Route path="/patients/:id" element={PatientInfo()} />
-          </Route>
+          <Route path="patients/:id" element={PatientInfo()} />
+          <Route path="patients" element={Patient()}></Route>
         </Route>
       </Routes>
     </BrowserRouter>
