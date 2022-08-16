@@ -1,5 +1,6 @@
 import '../stylesheets/App.css';
 import Patient from '../pages/Patient';
+import PatientInfo from '../pages/PatientInfo';
 import { Container } from 'reactstrap';
 import { Outlet, BrowserRouter, Routes, Route } from 'react-router-dom';
 
@@ -17,7 +18,9 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={AppConstantElements}>
-          <Route path="patients" element={Patient()} />
+          <Route path="/patients" element={Patient()}>
+            <Route path="/patients/:id" element={PatientInfo()} />
+          </Route>
         </Route>
       </Routes>
     </BrowserRouter>
