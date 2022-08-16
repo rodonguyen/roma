@@ -31,7 +31,7 @@ const convertSearchResultToRowData = (searchResults) => {
   return rowData;
 };
 
-// More to be added from available params of http://hapi.fhir.org/baseR4/
+// All params existed in https://hapi.fhir.org/baseR4/swagger-ui/?page=Patient
 const searchTypes = [
   'name', 'family', 'birthdate', 'phone', 'gender', 'family', 
   'deceased', 'address-state', '_lastUpdated', 'link',
