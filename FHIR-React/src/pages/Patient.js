@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { AgGridReact } from "ag-grid-react";
 import { getPatient } from '../apis/patient';
 import SearchBar from '../components/SearchBar';
@@ -6,7 +6,7 @@ import 'ag-grid-community/styles/ag-grid.css'; // Core grid CSS, always needed
 import 'ag-grid-community/styles/ag-theme-balham.css';
 import '../stylesheets/Patient.css';
 
-
+const baseURL = 'patients'
 const convertSearchResultToRowData = (searchResults) => {
   const rowData = searchResults.map((patient) => {
     try {
@@ -31,6 +31,10 @@ const convertSearchResultToRowData = (searchResults) => {
   return rowData;
 };
 
+const hyperlinkToDetailedPatientPage = (params) => {
+  return <a href={`${baseURL}/${params.value}`} rel="noreferrer" target="_blank"> {params.value} </a>
+}
+
 // All params existed in https://hapi.fhir.org/baseR4/swagger-ui/?page=Patient
 const searchTypes = [
   'name', 'family', 'birthdate', 'phone', 'gender', 'family', 
@@ -44,17 +48,20 @@ const searchTypes = [
 
 const Patient = () => {
   // ag-grid-table variables
+  const gridStyle = useMemo(() => ({ height: '70vh', width: '70vw' }), []);
+  const defaultColDef = {
+    filter: true,
+    sortable: true,
+    resizable: true,  }
   const columnDefs = [
-    { headerName: "Given names", field: "givenNames", sortable: true, filter: true, resizable: true},
-    { headerName: "Family name", field: "familyName", sortable: true, filter: true, resizable: true},
-    { headerName: "Birthdate", field: "birthDate", sortable: true, filter: true, resizable: true},
-    { headerName: "Gender", field: "gender", sortable: true, filter: true, resizable: true},
-    { headerName: "ID", field: "id", sortable: true, filter: true, resizable: true},
-  ];
+    { headerName: "Given names", field: "givenNames"},
+    { headerName: "Family name", field: "familyName"},
+    { headerName: "Birthdate", field: "birthDate"},
+    { headerName: "Gender", field: "gender"},
+    { headerName: "ID", field: "id", cellRenderer: (params) => hyperlinkToDetailedPatientPage(params)}, ]
   const [rowData, setRowData] = useState([
-    {givenNames: "Adam", familyName: "ThisisAnExample", birthDate: "1970-05-06", gender: "male", id: 123126969},
-    {givenNames: 'Abbey',familyName: 'Goodwin', birthDate: "1979-09-06", gender: "male", id: 1777777}
-  ])
+    {givenNames: "Adam", familyName: "ThisIsAnExample", birthDate: "1970-05-06", gender: "male", id: 123126969},
+    {givenNames: 'Abbey',familyName: 'Goodwin', birthDate: "1979-09-06", gender: "male", id: 1777777} ])
   const [notification, setNotification] = useState("")
 
   const onSearchSubmit = async (queryType, queryValue) => {
@@ -67,24 +74,23 @@ const Patient = () => {
     } else {
       setNotification('Total entries found: 0')
     }
-
-    
   };
 
   return (
-    <div>
+    <div className='Patient'>
       <SearchBar placeholder={'Search a patient name'} onSubmit={onSearchSubmit} options={searchTypes}/>
 
       <p>{notification}</p>
 
-      <div className='ag-theme-balham-dark' style={{height: '70vh', width: '50vw'}}> 
+      <div className='ag-theme-balham-dark' style={gridStyle}> 
         <AgGridReact
           columnDefs={columnDefs}
           rowData={rowData}
           pagination={true}
           paginationPageSize={50}
+          defaultColDef={defaultColDef}
           onGridReady={(params) => {
-            params.api.sizeColumnsToFit();}}
+            params.api.sizeColumnsToFit()}}
         />
       </div>
     </div>
