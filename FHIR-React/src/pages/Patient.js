@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { AgGridReact } from "ag-grid-react";
-import { getPatient } from '../apis/patient';
+import { searchPatient } from '../apis/patient';
 import SearchBar from '../components/SearchBar';
 import 'ag-grid-community/styles/ag-grid.css'; // Core grid CSS, always needed
 import 'ag-grid-community/styles/ag-theme-balham.css';
@@ -46,6 +46,7 @@ const searchTypes = [
   '_has', 'address-use', '_source', '_id', '_text', '_content', 
 ] 
 
+
 const Patient = () => {
   // ag-grid-table variables
   const gridStyle = useMemo(() => ({ height: '70vh', width: '70vw' }), []);
@@ -65,7 +66,7 @@ const Patient = () => {
   const [notification, setNotification] = useState("")
 
   const onSearchSubmit = async (queryType, queryValue) => {
-    const searchResults = await getPatient(queryType, queryValue);
+    const searchResults = await searchPatient(queryType, queryValue);
     console.log(searchResults);
     if (searchResults.total !== 0) {
       const rowData = convertSearchResultToRowData(searchResults.entry)
