@@ -1,0 +1,99 @@
+{
+    "resourceType":"Bundle",
+    "id": "bf07edbd-ed03-478e-bda3-40301ffc4ec3",
+    "meta":
+    {
+        "lastUpdated": "2022-08-01T12:48:08.1405513Z"
+    },
+    "type": "searchset",
+    "total": "2",
+    "link":
+    [{
+        "relation": "self",
+        "url": "http://fhir-dstu2-nprogram.azurewebsites.net/Organization/search?name=Test&_format=json"
+    }],
+    "entry":
+    [{
+        "resource":
+        {
+            "resourceType":"Organization",
+            "text":
+            {
+                "status": "generated",
+                    "div": "<div xmlns='http://www.w3.org/1999/xhtml'><p>Test Hospital. tel: +44 121 123 4567, email: <a>reception@testhospital.org</a></p></div>"
+            },
+            "identifier":
+            [{
+                "system": "http://www.test.org/id",
+                "value": "1"
+            }],
+            "name": "Test Hospital",
+            "telecom":
+            [{
+                "system": "phone",
+                "value": "+44 121 123 4567",
+                "use": "mobile"
+            },
+            {
+                "system": "email",
+                "value": "reception@testhospital.org",
+                "use": "work"
+            }],
+            "address":
+            [{
+                "line":[ "Mindelsohn Way"],
+                "city": "Birmingham",
+                "postalCode": "B15 2GW",
+                "country": "UK"
+            }]
+            
+        }
+    },
+    {
+        "resource":
+        {
+            "resourceType":"Organization",
+            "text":
+            {
+                "status": "generated",
+                    "div": "<div xmlns='http://www.w3.org/1999/xhtml'><p>Test Lab Ltd.</p><p>100 Hospital Drive</p><p>Birmingham</p><p>B14 7AT</p><p>UK</p><p>email: <a>test@demorg.org</a></p></div>"
+            },
+            "identifier":
+            [{
+                "system": "http://www.test.org/id",
+                "value": "10"
+            }],
+            "name": "Test Lab Ltd.",
+            "telecom":
+            [{
+                "system": "phone",
+                "value": "+44 121 123 4568",
+                "use": "mobile"
+            },
+            {
+                "system": "email",
+                "value": "test@demorg.org",
+                "use": "work"
+            }],
+            "address":
+            [{
+                "line":[ "100 Hospital Drive"],
+                "city": "Birmingham",
+                "postalCode": "B14 7AT",
+                "country": "UK"
+            }],
+            "contact":
+            [{
+                "name":
+                {
+                    "family":[ "Test"],
+                    "given":[ "Tommy"],
+                    "prefix":[ "Dr."]
+                }
+            }]
+            
+        }
+    }]
+
+}
+
