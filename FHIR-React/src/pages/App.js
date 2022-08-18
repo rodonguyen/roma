@@ -18,8 +18,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={AppConstantElements}>
-          <Route path="patients/:id" element={PatientInfo()} />
-          <Route path="patients" element={Patient()}></Route>
+          <Route path="patients/:id" element={<PatientInfo/>} />
+          <Route path="patients" element={<Patient />} />
         </Route>
       </Routes>
     </BrowserRouter>
