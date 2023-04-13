@@ -1,11 +1,11 @@
 
 # Report
 
-Read full report [here](../Documents/FinalReport.pdf)
+Read full report [here](./Documents/FinalReport.pdf)
 
 # Dev Tutorials
 
-Check out our [in-depth development tutorials](../Documents/FHIR_IPS_App_Tutorial.pdf) for both Blazor and React Apps 
+Check out our [in-depth development tutorials](./Documents/FHIR_IPS_App_Tutorial.pdf) for both Blazor and React Apps 
 
 # ROMA FHIR Resources for C\#  & JS
 
