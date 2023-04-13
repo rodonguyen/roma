@@ -1,9 +1,16 @@
 
+# Report
+
+Read full report [here](../Documents/FinalReport.pdf)
+
+# Dev Tutorials
+
+Check out our [in-depth development tutorials](../Documents/FHIR_IPS_App_Tutorial.pdf) for both Blazor and React Apps 
+
 # ROMA FHIR Resources for C\#  & JS
 
 A repository to house all code and configuration artefacts produced by the Roma team in collaboration with S23M
 
-This repository was created in tandem with tutorials found **[here](https://github.com/s23m/roma/tree/main/FHIR-Blazor)***
 
 ## [C\#](https://github.com/s23m/roma/tree/main/FHIR-Blazor) Local Deployment
 
@@ -51,8 +58,3 @@ Start the application
 ```bash
   npm start
 ```
-
----
-**More information about deployment can be found on the [accompaning tutorial pages](https://github.com/s23m/roma)***
-
-**Links to tutorials are currently broken as they have not been published yet*
